@@ -55,24 +55,20 @@ $(function() {
           */
          
          it('is visible when clicked, and disappears when clicked a second time', function() {
-            if ($('body').hasClass('menu-hidden')) {
+          //Click the menu one time, expect menu to appear
                 menu.click();
-
                 expect($('body').hasClass('menu-hidden')).toBe(false);
-            } 
-
-            if (!$('body').hasClass('menu-hidden')) {
+          //Click the menu a second time, expect the menu to disappear 
                 menu.click();
-
                 expect($('body').hasClass('menu-hidden')).toBe(true);
-            }
+           
         });
 	});
 	
     /* Test suite 'Initial Entries' */
    
    describe('Initial Entries', function() {
-   	var entry;
+   	var entry = $('.feed').html();;
 
         /* This test ensures that when the loadFeed
          * function is called and completes its work, there is at least
@@ -82,10 +78,12 @@ $(function() {
         /* Simulate the asynchronous function */
         beforeEach(function(done) {
             loadFeed(0, (function() {
-                entry = $('.feed').html();
-            }));
-
-            done();
+                //entry = $('.feed').html();
+                done(); 
+            }
+            	
+            ));
+           		
         });
                
         it('are present', function() {
@@ -97,7 +95,7 @@ $(function() {
     /* Test suite 'New Feed Selection' */
 
 	describe('New Feed Selection', function() {
-		var entry;
+		var entry = $('.feed').html();
 
         /* This test ensures that when a new feed is loaded
          * by the loadFeed function the content actually changes.
@@ -106,15 +104,18 @@ $(function() {
         /* Simulate the asynchronous function */
         beforeEach(function(done) {
             loadFeed(1, (function() {
-                entry = $('.feed').html();
-            }));
-
-            done();
+                //entry = $('.feed').html();
+                done();
+            }
+            	
+            ));
+            	
         });
 
         it('content changes when a new feed is loaded', function(done) {
             loadFeed(2, done);
             expect($('.feed').html()).not.toEqual(entry);
+           
         });
 	
 	});
