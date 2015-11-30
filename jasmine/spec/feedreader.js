@@ -19,9 +19,9 @@ $(function() {
 
          it('all have URLs', function() {
            allFeeds.forEach(function(element) {
-           	expect(element).toBeDefined();
-           	expect(element).not.toBe('');
-           })
+           	expect(element.url).toBeDefined();
+           	expect(element.url).not.toBe('');
+           });
          });
          
         /* This test loops through each feed
@@ -31,9 +31,9 @@ $(function() {
         
          it('all have names', function() {           
            allFeeds.forEach(function(element) {
-           	expect(element).toBeDefined();
-           	expect(element).not.toBe('');
-           })
+           	expect(element.name).toBeDefined();
+           	expect(element.name).not.toBe('');
+           });
          });
     });
 
@@ -68,7 +68,7 @@ $(function() {
     /* Test suite 'Initial Entries' */
    
    describe('Initial Entries', function() {
-   	var entry = $('.feed').html();;
+   	var entry;
 
         /* This test ensures that when the loadFeed
          * function is called and completes its work, there is at least
@@ -77,17 +77,13 @@ $(function() {
         
         /* Simulate the asynchronous function */
         beforeEach(function(done) {
-            loadFeed(0, (function() {
-                //entry = $('.feed').html();
-                done(); 
-            }
-            	
-            ));
-           		
+                //entry = $('.feed').html();  
+                loadFeed(0, done);	
         });
                
-        it('are present', function() {
-            expect(entry).not.toBe(null);
+        it('should have at least one entry', function(done) {
+            expect($('.feed').html().length).toBeGreaterThan(0);
+            done(); 
         });
    	
    });
@@ -95,29 +91,26 @@ $(function() {
     /* Test suite 'New Feed Selection' */
 
 	describe('New Feed Selection', function() {
-		var entry = $('.feed').html();
+		var entry;
 
         /* This test ensures that when a new feed is loaded
          * by the loadFeed function the content actually changes.
          */
         
-        /* Simulate the asynchronous function */
+        /* Simulate the asynchronous function.
+         * Load the feed, set it equal to variable 'entry'
+         * and then reload the feed with another feed id
+         * The two load feeds should not be equal */
         beforeEach(function(done) {
-            loadFeed(1, (function() {
-                //entry = $('.feed').html();
-                done();
-            }
-            	
-            ));
-            	
-        });
-
+        	loadFeed(0, done);
+        	entry = $('.feed').html();
+        	loadFeed(1, done);
+        });	
+               
         it('content changes when a new feed is loaded', function(done) {
             loadFeed(2, done);
             expect($('.feed').html()).not.toEqual(entry);
-           
+            done();
         });
-	
 	});
-
 }());
