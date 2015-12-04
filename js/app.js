@@ -9,17 +9,17 @@
 // The names and URLs to all of the feeds we'd like available.
 var allFeeds = [
     {
-        name: 'Udacity Blog',
-        url: 'http://blog.udacity.com/feeds/posts/default?alt=rss'
+        name: 'Tech Crunch',
+        url: 'http://feeds.feedburner.com/techcrunch'
     }, {
-        name: 'CSS Tricks',
-        url: 'http://css-tricks.com/feed'
+        name: 'Recipes',
+        url: 'http://feeds.feedburner.com/elise/simplyrecipes'
     }, {
-        name: 'HTML5 Rocks',
-        url: 'http://feeds.feedburner.com/html5rocks'
+        name: 'Mashable',
+        url: 'http://feeds.feedburner.com/Mashable'
     }, {
-        name: 'Linear Digressions',
-        url: 'http://feeds.feedburner.com/udacity-linear-digressions'
+        name: 'Boing Boing',
+        url: 'http://feeds.feedburner.com/boingboing/ibag'
     }
 ];
 
