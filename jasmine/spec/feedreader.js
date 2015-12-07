@@ -69,6 +69,7 @@ $(function() {
         /* Calls the `loadFeed` function with a callback `done`
          * to ensure that it's complete.
          */
+
         beforeEach(function(done) {
             loadFeed(0, done);
         });
@@ -77,6 +78,7 @@ $(function() {
          * there is at least one .entry element within the .feed
          * container.
          */
+
         it('has at least one entry', function(done) {
             var entries = $('.feed').find('.entry');
             expect(entries.length).toBeGreaterThan(0);
@@ -91,10 +93,10 @@ $(function() {
         /* Calls the `loadFeed` function with callbacks to ensure that
          * they're complete.
          */
+
         beforeEach(function(done) {
             /* Make sure that there are at least two feeds to test */
             expect(allFeeds.length >= 2).toBe(true);
-
             /* Load the first feed at index 0 */
             loadFeed(0, function() {
                 /* Set variable feed1 to the contents of the first feed */
@@ -111,6 +113,7 @@ $(function() {
         /* Tests that feed1 is not equal to feed2, which means
          * that the content has changed, which is what is expected.
          */
+
         it('changes content', function(done) {
             //expect(feed1 != feed2).toBe(true);
             expect(feed1).not.toEqual(feed2);

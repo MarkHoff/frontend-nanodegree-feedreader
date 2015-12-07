@@ -23,5 +23,18 @@ The feedreader.js Jasmine file consists of four test suites:</p>
 The last three test suites require some initial setup, so I created a beforeEach function to set up a variable that was created before the tests could be run.</br></br>
 
 The tests were very instructive in teaching me how Jasmine runs and how valuable it can be to test new functionality as well as regression testing existing functionality to make sure nothing
-is broken when code changes are made.</p>
+is broken when code changes are made.</br></br>
+
+To run the Jasmine application for this project do the following:</p>
+
+<ol>
+<li>Open index.html in this project.</li>
+<li>On the top half of the web page you should see a header bar with some RSS feed topics below it.</li>
+<li>Click on the menu icon in the header bar, which should make a menu appear from the left side.</li>
+<li>Click on any of the RSS links to refresh the page with a new set of links.  The heading should also match the menu links.</li>
+<li>On the bottom half of the web page are the Jasmine test restults.  The status bar across the top of the Jasmine output should be green.</li>
+<li>Inside the status bar should show 6 specs and 0 failures (hopefully).  If not, the bar will be red and it will show how many specs failed.</li>
+<li>If all tests pass, then the test suite descriptions will show below the status bar in black, with the individual tests in green below it.</li>
+<li>The tests can be run individually by clicking on each link, or you can run all by clicking the 'run all' link above the status bar.</li>
+</ol>
 </html>
